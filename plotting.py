@@ -16,6 +16,9 @@ def center_fig(fig, name, width=80):
     else:
         fp = os.path.join(folder, name+ext)
     
+    if os.path.exists(fp):
+        os.remove(fp)
+        
     fig.savefig(fp) # Create an HTML img tag to display the image
     img_tag = (f'<img src="{fp}" alt="plots"'
                'style="display:block; margin-left:auto;'
